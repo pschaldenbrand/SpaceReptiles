@@ -13,8 +13,11 @@ session_start();
 	$n = $_SESSION["username"];
 	story_header("$n, You Totally Didn't Suppress the Coup AHHH!");
 	story_img("../../space_pics/coup.jpg");
+	//opt 1
 	story_option("Leave Mars!",
 				"story1.php");
+	//next
+	include("addToStory.php");
 	?>
 </body>
 </html>

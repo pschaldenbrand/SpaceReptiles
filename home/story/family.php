@@ -13,8 +13,11 @@ session_start();
 	$n = $_SESSION["username"];
 	story_header("$n, What a Bad Idea, Families are for Amphibians.");
 	story_img("../../space_pics/family.jpg");
+	//opt 1
 	story_option("Leave Mars!",
 				"story1.php");
+	//next
+	include("addToStory.php");
 	?>
 </body>
 </html>

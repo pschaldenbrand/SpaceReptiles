@@ -15,12 +15,17 @@ session_start();
 	story_header("Woah, You Created Life on Mars!
 					You're just like Matt Damon, $n!");
 	story_img("../../space_pics/life.jpg");
+	//opt 1
 	story_option("Suppress a Coup d'état", 
 				"coup.php");
+	//opt 2
 	story_option("Start a Lizard Family", 
 				"family.php");
+	//opt 3
 	story_option("Leave Mars!",
 				"story1.php");
+	//next
+	include("addToStory.php");
 ?>
 </body>
 </html>

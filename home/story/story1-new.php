@@ -35,7 +35,7 @@ session_start();
 	story_option("Back to Home Page",
 				"../home1.php");
 	//opt 7
-	story_option("Stupid ass cunt face","McPenisBitch.php");
+	story_option("bitch12","bitch12.php");
 	//next	
 	include("addToStory.php");
 	?>

@@ -14,8 +14,11 @@ session_start();
 	$n = $_SESSION["username"];
 	story_header("Wow $n, Such an Emotional Adventure!");
 	story_img("../../space_pics/emojourney.jpg");
+	//opt 1
 	story_option("Exit This Highly Emotional Journey!",
 				"story1.php");
+	//next
+	include("addToStory.php");
 	?>
 </body>
 </html>

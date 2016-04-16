@@ -111,3 +111,29 @@ p.story_title{
 form.story{
 	display: inline;
 }
+.add{
+	-webkit-transition-duration: 0.4s;
+	transition-duration: 0.6s;
+	background-color: lightblue;
+	//display: inline;
+	width: 50%;
+	margin-left: 25%;
+	//height: 30%;
+	//padding: 1%;
+	border: 3px solid rgb(64,0,135);
+	font-family: camp;
+	font-size: 70%;
+	color: rgb(64,0,135);
+	//border-radius: 15%;
+	margin-left: 25%;
+	margin-top: 5%;
+	margin-bottom: 3%;
+}
+p.formtext{
+	font-size: 60%;
+	margin: 1% 1%;
+}
+.textbox{
+	font-family: camp;
+	font-size: 100%;
+}
