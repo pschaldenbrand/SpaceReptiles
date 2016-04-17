@@ -29,16 +29,18 @@ if ($uploadOk == 0) {
 else {
 	if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], 
 		$target_dir . $_POST["fileName"] ."-img.". $imageFileType)) {
+			echo "</br>uploaded</br>";
 	} 
 	else {
+		echo "</br>not uploaded yo</br>";
 	}
 }
 if( $uploadOk == 1){
 	
 //Make a PHP file to have the new page
 $phppage = fopen( $_POST["fileName"] . "_USER_MADE_PAGE.php", "w");
-fwrite( $phppage, "
-<?php
+fwrite( $phppage, 
+"<?php
 //Written by Peter Schaldenbrand
 session_start();
 ?>
@@ -59,13 +61,15 @@ fwrite( $phppage, "\tstory_img(\"uploaded_pics/".$_POST["fileName"]."-img.".$ima
 $prevPageNameAr = explode("/",$_SERVER['HTTP_REFERER']);
 $prev_page_name = $prevPageNameAr[ count( $prevPageNameAr) -1 ];
 fwrite( $phppage, "\n\t//opt 1\n\tstory_option(\"Go Back?\", \"$prev_page_name\");");
-fwrite( $phppage, "//next\ninclude(\"addToStory.php\");\n?>\n</body>\n</html>");
+fwrite( $phppage, "\n\t//next\n\tinclude(\"addToStory.php\");\n?>\n</body>\n</html>");
 //Edit the current story page to include the new option
 //echo "</br>".$_SERVER['HTTP_REFERER'];
 $page_name_ar = explode("/",$_SERVER['HTTP_REFERER']);
 $page_name = $page_name_ar[ count( $page_name_ar) -1 ];
-//echo "      ".$page_name;
-$pagetext = fopen( $page_name, "r");
+echo"</br>".count($page_name)."gay".$page_name."</br>";
+$page_name = substr($page_name, 0, -1 );
+echo "    gay  ".$page_name;
+$pagetext = fopen( $page_name , "r");
 $i = 0;
 $str_ar;
 while(!feof($pagetext)){
@@ -95,7 +99,7 @@ for( $j = 0; $j < count($str_ar); $j++){
 			$goToPHP = $_POST["fileName"]."_USER_MADE_PAGE.php";
 			fwrite( $newfile, "\tstory_option(\"".$_POST["option_text"]."\",\"$goToPHP\");\n");
 			fwrite( $newfile, "\t//next\n");
-			fwrite( $newfile, 
+			//fwrite( $newfile, 
 		}
 	}
 	if( $write == true ){

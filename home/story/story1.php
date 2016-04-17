@@ -34,15 +34,6 @@ session_start();
 	//opt 6
 	story_option("Back to Home Page",
 				"../home1.php");
-	
-	//opt 7
-	story_option("asdffds","sasadf_USER_MADE_PAGE.php");
-	//opt 8
-	story_option("asdffds","sasadf_USER_MADE_PAGE.php");
-	//opt 9
-	story_option("asdffds","sasadf_USER_MADE_PAGE.php");
-	//opt 10
-	story_option("Go to pittsburgh","yay_USER_MADE_PAGE.php");
 	//next
 	include("addToStory.php");
 	?>
