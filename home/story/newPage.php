@@ -2,35 +2,39 @@
 //Using some code from http://www.w3schools.com/php/php_file_upload.asp
 $target_dir = "uploaded_pics/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+echo strlen($_FILES["fileToUpload"]["name"]) . "     ";
+echo $_FILES["fileToUpload"]["name"];
 $uploadOk = 1;
+if( strlen($_FILES["fileToUpload"]["name"]) <5 ){
+	$uploadOk=0;
+}
 //echo "$target_file and $target_dir";
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 && $imageFileType != "gif" ) {
-    //echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
     $uploadOk = 0;
 } 
+if( strlen($_POST["fileName"])==0 || strlen($_POST["option_text"])==0){
+	$uploadOk == 0;
+}
 
-//$newFile = fopen( $_FILES["fileToUpload"]["name"] , "w");
-//imagejpeg( $target_file
-
-	// Check if $uploadOk is set to 0 by an error
-	if ($uploadOk == 0) {
-		//echo "Sorry, your file was not uploaded.";
+// Check if $uploadOk is set to 0 by an error
+if ($uploadOk == 0) {
+	echo "</br>no</br>";
+} 
+// if everything is ok, try to upload file
+else {
+	if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], 
+		$target_dir . $_POST["fileName"] ."-img.". $imageFileType)) {
 	} 
-	// if everything is ok, try to upload file
 	else {
-		if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], 
-			$target_dir . $_POST["fileName"] ."-img.". $imageFileType)) {
-			//echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-		} 
-		else {
-			//echo "Sorry, there was an error uploading your file.";
-		}
 	}
-
+}
+if( $uploadOk == 1){
+	
 //Make a PHP file to have the new page
 $phppage = fopen( $_POST["fileName"] . "_USER_MADE_PAGE.php", "w");
 fwrite( $phppage, "
@@ -91,6 +95,7 @@ for( $j = 0; $j < count($str_ar); $j++){
 			$goToPHP = $_POST["fileName"]."_USER_MADE_PAGE.php";
 			fwrite( $newfile, "\tstory_option(\"".$_POST["option_text"]."\",\"$goToPHP\");\n");
 			fwrite( $newfile, "\t//next\n");
+			fwrite( $newfile, 
 		}
 	}
 	if( $write == true ){
@@ -101,6 +106,6 @@ for( $j = 0; $j < count($str_ar); $j++){
 fclose($newfile);
 fclose($pagetext);
 fclose($phppage);
-
+}
 header( 'Location: ' . $_SERVER['HTTP_REFERER']);
 ?>

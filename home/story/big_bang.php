@@ -18,8 +18,6 @@ session_start();
 	//opt 1
 	story_option("Go Back in Time and Stop Yourself From Going Back in Time and Stopping the Big Bang?",
 				"story1.php");
-	//opt 2
-	story_option("STEPHEN IS WEIRD","WEIRD_USER_MADE_PAGE.php");
 	//next
 	include("addToStory.php");
 	?>

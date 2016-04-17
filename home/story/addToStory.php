@@ -10,7 +10,7 @@ echo
 	<input type=\"text\" class=\"textbox\" name=\"option_text\" id=\"opttext\"></br>
 	<p class=\"formtext\">Make a filename for your new Image:</p>
 	<input type=\"text\" class=\"textbox\" name=\"fileName\" id=\"fname\"></br>
-    <input type=\"submit\" value=\"Upload Image\" name=\"submit\">
+    <input class=\"button_upload\" type=\"submit\" value=\"Upload Image\" name=\"submit\">
 </form>
 </div>
 "

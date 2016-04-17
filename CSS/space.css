@@ -108,6 +108,26 @@ p.story_title{
 	margin-top: 1%;
 	margin-bottom: 1%;
 }
+.button_upload{
+	-webkit-transition-duration: 0.4s;
+	transition-duration: 0.6s;
+	background-color: rgb(250,250,140);
+	display: inline;
+	width: 30%;
+	height: 30%;
+	padding: 0% 0%;
+	border: 3px solid rgb(64,0,135);
+	font-family: camp;
+	font-size: 70%;
+	color: rgb(64,0,135);
+	border-radius: 15%;
+	margin-top: 1%;
+	margin-bottom: 1%;
+}
+submit:hover{
+	background-color: lightgreen;
+}
+
 form.story{
 	display: inline;
 }
@@ -131,9 +151,13 @@ form.story{
 }
 p.formtext{
 	font-size: 60%;
-	margin: 1% 1%;
+	margin-top: 3%;
+	width: 80%;
+	margin-left:10%;
+	margin-bottom: 0%;
 }
 .textbox{
 	font-family: camp;
 	font-size: 100%;
+	background-color: rgb(250,255,200);
 }
