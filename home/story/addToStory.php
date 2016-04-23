@@ -1,4 +1,6 @@
 <?php
+//This adds a box to the bottom of each story page
+//the box has a form to create a new page in the story
 echo
 "
 </br>

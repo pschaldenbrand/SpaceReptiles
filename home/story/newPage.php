@@ -1,14 +1,18 @@
 <?php
-//Using some code from http://www.w3schools.com/php/php_file_upload.asp
+/*Written by Peter Schaldenbrand
+  this is the page that updates the current story php file
+  to add the new option (button) to go to the new page. 
+  it uploads a photo and then creates a new php file that
+  is the new page.
+  Using some code from http://www.w3schools.com/php/php_file_upload.asp*/
+  
+//upload the picture
 $target_dir = "uploaded_pics/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-echo strlen($_FILES["fileToUpload"]["name"]) . "     ";
-echo $_FILES["fileToUpload"]["name"];
 $uploadOk = 1;
 if( strlen($_FILES["fileToUpload"]["name"]) <5 ){
 	$uploadOk=0;
 }
-//echo "$target_file and $target_dir";
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
 // Allow certain file formats
@@ -29,13 +33,9 @@ if ($uploadOk == 0) {
 else {
 	if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], 
 		$target_dir . $_POST["fileName"] ."-img.". $imageFileType)) {
-			echo "</br>uploaded</br>";
 	} 
-	else {
-		echo "</br>not uploaded yo</br>";
-	}
 }
-if( $uploadOk == 1){
+if( $uploadOk == 1){  //only do this stuff if the picture uploaded correctly
 	
 //Make a PHP file to have the new page
 $phppage = fopen( $_POST["fileName"] . "_USER_MADE_PAGE.php", "w");
@@ -65,54 +65,51 @@ fwrite( $phppage, "\n\t//next\n\tinclude(\"addToStory.php\");\n?>\n");
 fwrite( $phppage, "<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js\"></script>\n");
 fwrite( $phppage, "<script src=\"story_js.js\"></script>\n" );
 fwrite( $phppage, "</body>\n</html>");
+
 //Edit the current story page to include the new option
-//echo "</br>".$_SERVER['HTTP_REFERER'];
 $page_name_ar = explode("/",$_SERVER['HTTP_REFERER']);
 $page_name = $page_name_ar[ count( $page_name_ar) -1 ];
-echo"</br>".count($page_name)."".$page_name."</br>";
 $page_name = substr($page_name, 0, -1 );
-echo "    gay  ".$page_name;
 $pagetext = fopen( $page_name , "r");
 $i = 0;
 $str_ar;
+//add all the lines of the file to an array to add back later
 while(!feof($pagetext)){
 	$str_ar[$i] = fgets($pagetext);
 	$i = $i + 1;
 }
 
+//add all the lines back to the file with the new option (button) in it
 $newfn = substr($page_name, 0, count($page_name)-5) .".php";
-echo"cuntcuntcutn".$newfn;
 $newfile = fopen( $newfn, "w");
 $opt_num = 1;
 for( $j = 0; $j < count($str_ar); $j++){
 	$line = $str_ar[$j];
 	$split = preg_split('/\s+/', $line);
 	$write = true;
-	//print_r( $split );
 	if( count($split) == 4 ){
 		if( $split[1] === "//opt" ){
-			//echo"</br> $split[1]</br>";
 			$opt_num = $opt_num + 1;
 		}
 	}
 	if( count($split) == 3 ){
+		//add the line that has the new page option
 		if( $split[1] === "//next" ){
 			$write = false;
 			fwrite( $newfile, "\t//opt ".$opt_num."\n" );
 			$goToPHP = $_POST["fileName"]."_USER_MADE_PAGE.php";
 			fwrite( $newfile, "\tstory_option(\"".$_POST["option_text"]."\",\"$goToPHP\");\n");
 			fwrite( $newfile, "\t//next\n");
-			//fwrite( $newfile, 
 		}
 	}
 	if( $write == true ){
 		fwrite( $newfile, $line);
 	}
-		
 }
 fclose($newfile);
 fclose($pagetext);
 fclose($phppage);
 }
+//go back to the original page
 header( 'Location: ' . $_SERVER['HTTP_REFERER']);
 ?>
