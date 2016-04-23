@@ -13,7 +13,7 @@ and a password.
 <html lang="en">
 <head>
 	<style>
-		input[type=text] {
+		.enterinfo{
 			width: 50%;
 			padding: 6px 20px;
 			margin-bottom: 4%;
@@ -70,10 +70,10 @@ and a password.
 <body>
 <div>
 	<form class = "logon" action = "home/home1.php" method = "GET">
-		<p class = "logon"><b>What is your username?</b></p>
-		<input type = "text" name = "name" size = "30" maxlength = "30"><br/>
-		<p class = "logon"><b>What is your password?</b></p>
-		<input type = "text" name = "password" size = "30" maxlength = "30"><br/>
+		<p class = "logon"><b>What is your username?</b></p></br>
+		<input type = "text" class="enterinfo" name = "name" size = "30" maxlength = "30"><br/>
+		<p class = "logon"><b>What is your password?</b></p></br>
+		<input type = "password" class="enterinfo" name = "password" size = "30" maxlength = "30"><br/>
 		<button class = "button" type="submit" value="start">
 			<b>Logon  :]</b>
 		</button>
