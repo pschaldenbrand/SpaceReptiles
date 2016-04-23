@@ -90,21 +90,6 @@ session_start();
 		//this happens if the user is already in the lizards table.
 		echo "Welcome back $name!<br/>";
 	}
-	
-	/*
-	//this will print out all the names and passwords of the Lizards
-	//in the Lizards table.  Probably best if users don't see this query
-	//it's good for testing though
-	$conn = new mysqli( $servername, $username, $password, $db );
-	$sql = "SELECT * FROM Lizards";
-	$rslt = $conn->query($sql);
-	if ($rslt) {
-		$row = $rslt->fetch_assoc();
-		while( $row ){
-			echo "Name: ".$row["name"]."\tPassword: ".$row["password"]."<br/>";
-			$row = $rslt->fetch_assoc();
-		}
-	}*/
 ?>
 </p>
 	<form action = "story/story1.php" method="GET">
@@ -113,14 +98,14 @@ session_start();
 	</button>
 	</form>
 	
-	<form action = "contact/contact.php" method="GET">
+	<form action = "../god/lizardgod.php" method="GET">
 	<button class = "button" type="submit" value="start">
 		<b>Contact the Lizard God</b>
 	</button>
 	</form>
 	
 	<form action = "../logon.php" method="GET">
-	<button class = "button" type="submit" value="start">
+	<button style="color:rgb(255,100,120);" class = "button" type="submit" value="start">
 		<b>Log Out</b>
 	</button>
 	</form>

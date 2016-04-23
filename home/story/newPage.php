@@ -61,12 +61,15 @@ fwrite( $phppage, "\tstory_img(\"uploaded_pics/".$_POST["fileName"]."-img.".$ima
 $prevPageNameAr = explode("/",$_SERVER['HTTP_REFERER']);
 $prev_page_name = $prevPageNameAr[ count( $prevPageNameAr) -1 ];
 fwrite( $phppage, "\n\t//opt 1\n\tstory_option(\"Go Back?\", \"$prev_page_name\");");
-fwrite( $phppage, "\n\t//next\n\tinclude(\"addToStory.php\");\n?>\n</body>\n</html>");
+fwrite( $phppage, "\n\t//next\n\tinclude(\"addToStory.php\");\n?>\n");
+fwrite( $phppage, "<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js\"></script>\n");
+fwrite( $phppage, "<script src=\"story_js.js\"></script>\n" );
+fwrite( $phppage, "</body>\n</html>");
 //Edit the current story page to include the new option
 //echo "</br>".$_SERVER['HTTP_REFERER'];
 $page_name_ar = explode("/",$_SERVER['HTTP_REFERER']);
 $page_name = $page_name_ar[ count( $page_name_ar) -1 ];
-echo"</br>".count($page_name)."gay".$page_name."</br>";
+echo"</br>".count($page_name)."".$page_name."</br>";
 $page_name = substr($page_name, 0, -1 );
 echo "    gay  ".$page_name;
 $pagetext = fopen( $page_name , "r");
