@@ -1,4 +1,10 @@
 <?php
+/*
+  Written by Peter Schaldenbrand
+  Sends a message to the lizard god. ie it saves the
+  message in the database then returns to the page
+*/
+
 	session_start();
 	//connect to the mysql database
 	$servername = "localhost";
@@ -6,8 +12,8 @@
 	$password = "";
 	$conn = new mysqli($servername, $username, $password);
 	
-	if( $conn->connect_error){
-		die( "Connection to mysqli failed" . $conn->connect_error);
+	if( $conn->connect_error ){
+		die( "Connection to mysqli failed" . $conn->connect_error );
 	}
 	
 	//create the space_lizards database if it doesn't already exist
@@ -19,7 +25,7 @@
 	
 	//connect to the space_lizards database
 	$conn = new mysqli( $servername, $username, $password, $db );
-	if( $conn->connect_error) {
+	if($conn->connect_error) {
 		die("Connection to database failed: ".$conn->connect_error);
 	}
 	
@@ -31,17 +37,16 @@
 			comment VARCHAR(241),
 			PRIMARY KEY (name, time)
 			)";
-	if ($conn->query($sql) === false ){
+	if ($conn->query($sql) === false){
 		echo "Error creating table: " . $conn->error;
 	}
 	$name = rtrim($_SESSION["username"]);
 	$pass = rtrim($_SESSION["password"]);
 	$comment = rtrim($_POST["comment"]);
 	$comment = nl2br($comment);
-	$name = 
 	$sql = "INSERT INTO Comments(name,password,comment)
 			VALUES( '$name', '$pass', '$comment' )";
-	if ($conn->query($sql) === false ){
+	if ($conn->query($sql) === false){
 		echo "Error inserting data into comments table: " . $conn->error;
 	}
 	header("Location: lizardgod.php");

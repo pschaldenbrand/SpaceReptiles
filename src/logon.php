@@ -69,12 +69,12 @@ and a password.
 </head>
 <body>
 <div>
-	<form class = "logon" action = "home/home1.php" method = "POST">
-		<p class = "logon"><b>What is your username?</b></p></br>
-		<input type = "text" class="enterinfo" name = "name" size = "30" maxlength = "30"><br/>
-		<p class = "logon"><b>What is your password?</b></p></br>
-		<input type = "password" class="enterinfo" name = "password" size = "30" maxlength = "30"><br/>
-		<button class = "button" type="submit" value="start">
+	<form class="logon" action="home/home1.php" method="POST">
+		<p class="logon"><b>What is your username?</b></p></br>
+		<input type="text" class="enterinfo" name="name" size="30" maxlength="30"><br/>
+		<p class="logon"><b>What is your password?</b></p></br>
+		<input type="password" class="enterinfo" name="password" size="30" maxlength="30"><br/>
+		<button class="button" type="submit" value="start">
 			<b>Logon  :]</b>
 		</button>
     </form>

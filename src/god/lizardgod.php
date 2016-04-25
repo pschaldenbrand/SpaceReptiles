@@ -1,5 +1,8 @@
 <?php
 //Written by Peter Schaldenbrand
+
+//This page displays a form for the user to enter text to send to
+//the lizard god, and also displays the messages sent by other lizards
 session_start();
 ?>
 <!DOCTYPE html>
@@ -78,8 +81,8 @@ session_start();
 	</style>
 </head>
 <body>
-	<form action = "../home/home1.php" method = "GET">
-		<button class = "button1" type="submit" value="start">
+	<form action="../home/home1.php" method="GET">
+		<button class="button1" type="submit" value="start">
 		home
 		</button>
 	</form>
@@ -92,8 +95,8 @@ session_start();
 		<p class="title"><b>
 			What would you like to say to Extraterestial Reptile God?
 		</b></p>
-		<textarea name = "comment" value="message" cols=40 rows=6>Type here.</textarea>
-		<button class = "button" type="submit" value="start">
+		<textarea name="comment" value="message" cols=40 rows=6>Type here.</textarea>
+		<button class="button" type="submit" value="start">
 			<b>Send this to God</b>
 		</button>
     </form>	

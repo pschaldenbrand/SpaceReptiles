@@ -13,7 +13,7 @@ session_start();
 	<title>SPACE LIZARDS FROM SPACE</title>
 </head>
 <body>
-<p id="title" class = "three">
+<p id="title" class="three">
 <?php 
 	//connect to the mysql database
 	$servername = "localhost";
@@ -92,25 +92,25 @@ session_start();
 	}
 ?>
 </p>
-	<form action = "story/story1.php" method="GET">
-	<button class = "button" type="submit" value="start">
+	<form action="story/story1.php" method="GET">
+	<button class="button" type="submit" value="start">
 		<b>Start Your Reptilian Adventure</b>
 	</button>
 	</form>
 	
-	<form action = "../god/lizardgod.php" method="GET">
-	<button class = "button" type="submit" value="start">
+	<form action="../god/lizardgod.php" method="GET">
+	<button class="button" type="submit" value="start">
 		<b>Contact the Lizard God</b>
 	</button>
 	</form>
 	
-	<form action = "../logon.php" method="GET">
-	<button style="color:rgb(255,100,120);" class = "button" type="submit" value="start">
+	<form action="../logon.php" method="GET">
+	<button style="color:rgb(255,100,120);" class="button" type="submit" value="start">
 		<b>Log Out</b>
 	</button>
 	</form>
 	
-<p id="dist" class = "four"><b>
+<p id="dist" class="four"><b>
 <?php
 	include("editdistance.php");
 	editdistance("LIZARD", strtoupper($_SESSION["username"]));

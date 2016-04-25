@@ -73,7 +73,6 @@ img.story {
 	padding: 5px;
 	height: 10%;
 	width: 80%;
-	/*max-width: 80%;*/
 	max-height: 550px;
 	display: inline-block;
 	margin: 1px 1px;
@@ -135,16 +134,12 @@ form.story{
 	-webkit-transition-duration: 0.4s;
 	transition-duration: 0.6s;
 	background-color: lightblue;
-	//display: inline;
 	width: 50%;
 	margin-left: 25%;
-	//height: 30%;
-	//padding: 1%;
 	border: 3px solid rgb(64,0,135);
 	font-family: camp;
 	font-size: 70%;
 	color: rgb(64,0,135);
-	//border-radius: 15%;
 	margin-left: 25%;
 	margin-top: 5%;
 	margin-bottom: 3%;

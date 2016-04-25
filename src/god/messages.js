@@ -1,4 +1,10 @@
+/*Written by Peter Schaldenbrand
 
+  This is used with lizardgod.php
+  It has an ajax call to get the lizard messages and display
+  them on the screen without reloading the page.
+  it also has some javascript to make things look better.
+*/
 
 $(document).ready(function(){
 	displayMessages();

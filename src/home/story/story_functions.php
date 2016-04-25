@@ -10,7 +10,7 @@ that depict your lizard on his travels throughout space.
 //$s is the message to be displayed
 function story_header ( $s ){
 	?>
-	<p class = "story_title">
+	<p class="story_title">
 	<?php echo $s; ?>
 	</p>
 	<?php
@@ -35,7 +35,7 @@ function story_img ( $s ){
 function story_option( $text, $action ){
 	?>
 	<form action= <?php echo $action; ?> class="story">
-	<button class = "button" type="submit" value="start">
+	<button class="button" type="submit" value="start">
 	<?php echo $text; ?>
 	</button>
 	</form>

@@ -1,4 +1,9 @@
+//Written by Peter Schaldenbrand
+//used with home1.php
+
 $(document).on("ready",function(){
+	//display the edit distance steps of the users name to "lizard"
+	//in a jazzy kinda way
 	var s = $("#dist").html();
 	$("#dist").html("");
 	s = s.replace("\n","");
@@ -24,8 +29,9 @@ $(document).on("ready",function(){
 			j = 0;
 		}
 	} 
-	, 2);
+	, 2);	//interval is every 2ms so it looks strange on ur computer
 	
+	//change the size of text when the window is resized
 	var startwid = $(window).width();
 	var currwid;
 	var startpxs = $("body").css("font-size");
