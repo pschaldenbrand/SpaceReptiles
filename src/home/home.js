@@ -1,13 +1,6 @@
 $(document).on("ready",function(){
 	var s = $("#dist").html();
 	$("#dist").html("");
-	/*$.ajax({url: "editDistance.php", type:"POST", dataType:"html",
-		success: function( data ){
-			console.log("displaying messages");
-			console.log(data);
-			$("#messages").html( data);
-		}
-	});*/
 	s = s.replace("\n","");
 	s = s.replace("<b>","");
 	s = s.replace("</b>","");
@@ -15,7 +8,6 @@ $(document).on("ready",function(){
 	for( var k = 0; k < s.length-1; k++){
 		$("#dist").append("</br>");
 	}
-	//console.log(s);
 	var j = 0;
 	setInterval( function(){ 
 		$("#dist").html("");
@@ -27,7 +19,6 @@ $(document).on("ready",function(){
 				$("#dist").append("</br>");
 			}
 		}
-		///console.log($("#dist").html());
 		j++;
 		if( j == s.length-1){
 			j = 0;
@@ -35,7 +26,6 @@ $(document).on("ready",function(){
 	} 
 	, 2);
 	
-	//change the size of the font if the window size changes
 	var startwid = $(window).width();
 	var currwid;
 	var startpxs = $("body").css("font-size");

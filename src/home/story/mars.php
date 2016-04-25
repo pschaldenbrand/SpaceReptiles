@@ -22,8 +22,6 @@ session_start();
 	//opt 3
 	story_option("Leave Mars!",
 				"story1.php");
-	//opt 4
-	story_option("go see some penguins","123456_USER_MADE_PAGE.php");
 	//next
 	include("addToStory.php");
 	?>

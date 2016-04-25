@@ -1,0 +1,39 @@
+Peter Schaldenbrand
+PLS21@pitt.edu
+
+I improved and added a bunch of stuff this time around.  The largest addition is that
+now users can make their own pages and add them to the story adventure.  They upload
+a photo of what their lizard is doing and add a short description.  This is then added
+as an option to the screen that they are on and they can click the option that takes 
+them to a page that has the picture and description.  
+Another big change was the addition of javascript.  Many pages have javascript files
+that will change the size of the text on the screen when resizing the window.  There
+is also javascript that displays the edit distance algorithm name thing on the home
+page in a super strange and mostly annoying way (sorry I thought it was kinda cool).
+The other big javascript addition was a revamped contact page.  In this case, the user
+still contacts the lizard god, but now they can see all the messages that everyone 
+else sends.  Using the javascript, the user can refresh this feed of messages to god
+by hitting the refresh button and the whole page doesn't have to reload thanks to 
+the magic of jquery and ajax.
+Here and there I made CSS tweaks to make things look nicer.  All the PHP scripts were
+revisited and updated to work better or be better formatted.
+
+If there was a third part to the project I would have liked to have used the google
+maps api.  It was a little too scary to try to jump right into it for this part of the
+project and I was afraid to not have enough done by the time it was due.
+
+Between the two parts of the project I learned a lot about client side stuff.  During
+part one, I only thought about server side stuff, so I was always thinking about 
+refreshing the page, but now that I have javascript under my belt, I now have a better
+mindset that is more user friendly because whole pages don't have to be reloaded always.
+
+I really liked the freedom that we had with this project.  I was worried that I would 
+be really bored and not be interested in this website at first but when you let us do
+whatever we wanted with it, I immediately was more interested.  There is a downside to
+this though.  With so much freedom, there is also a lot of unknowing as far as grading
+goes, and so I'm also worried that I might not fullfill all the requirements, but you
+were pretty good about laying out what needed to be in the site and what didn't.  The
+only thing that I think would have been a little better for this project would be if
+we had learned javascript earlier so it could have been incorporated into the first
+part of the project.  But that would have been really difficult to teach in such a 
+short period of time.
