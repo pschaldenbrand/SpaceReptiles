@@ -21,9 +21,12 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
     echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
     $uploadOk = 0;
 } 
-if( strlen($_POST["fileName"])==0 || strlen($_POST["option_text"])==0){
+if( strlen($_POST["option_text"])==0){
 	$uploadOk == 0;
 }
+
+//choose a random number for the file name:
+$filename = rand(0,999999999);
 
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
@@ -32,13 +35,13 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 else {
 	if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], 
-		$target_dir . $_POST["fileName"] ."-img.". $imageFileType)) {
+		$target_dir . $filename ."-img.". $imageFileType)) {
 	} 
 }
 if( $uploadOk == 1){  //only do this stuff if the picture uploaded correctly
 	
 //Make a PHP file to have the new page
-$phppage = fopen( $_POST["fileName"] . "_USER_MADE_PAGE.php", "w");
+$phppage = fopen( $filename . "_USER_MADE_PAGE.php", "w");
 fwrite( $phppage, 
 "<?php
 //Written by Peter Schaldenbrand
@@ -54,9 +57,9 @@ session_start();
 <body>
 	<?php include(\"story_functions.php\"); 
 	\$n = \$_SESSION[\"username\"];
-	story_header(\"" . "INSERT HEADER HERE\");\n" 
+	story_header(\"" . "".$_POST["description"]."\");\n" 
 );
-fwrite( $phppage, "\tstory_img(\"uploaded_pics/".$_POST["fileName"]."-img.".$imageFileType . "\");");
+fwrite( $phppage, "\tstory_img(\"uploaded_pics/".$filename."-img.".$imageFileType . "\");");
 
 $prevPageNameAr = explode("/",$_SERVER['HTTP_REFERER']);
 $prev_page_name = $prevPageNameAr[ count( $prevPageNameAr) -1 ];
@@ -97,7 +100,7 @@ for( $j = 0; $j < count($str_ar); $j++){
 		if( $split[1] === "//next" ){
 			$write = false;
 			fwrite( $newfile, "\t//opt ".$opt_num."\n" );
-			$goToPHP = $_POST["fileName"]."_USER_MADE_PAGE.php";
+			$goToPHP = $filename."_USER_MADE_PAGE.php";
 			fwrite( $newfile, "\tstory_option(\"".$_POST["option_text"]."\",\"$goToPHP\");\n");
 			fwrite( $newfile, "\t//next\n");
 		}

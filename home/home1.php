@@ -13,7 +13,7 @@ session_start();
 	<title>SPACE LIZARDS FROM SPACE</title>
 </head>
 <body>
-<p class = "three">
+<p id="title" class = "three">
 <?php 
 	//connect to the mysql database
 	$servername = "localhost";
@@ -51,8 +51,8 @@ session_start();
 	$name;
 	$pass;
 	if( !isset($_SESSION["username"]) ){
-		$name = $_GET["name"];
-		$pass = $_GET["password"];
+		$name = $_POST["name"];
+		$pass = $_POST["password"];
 		$name = rtrim($name);
 		$pass = rtrim($pass);
 		$_SESSION["username"] = $name;
@@ -110,11 +110,13 @@ session_start();
 	</button>
 	</form>
 	
-<p class = "four"><b>
+<p id="dist" class = "four"><b>
 <?php
 	include("editdistance.php");
 	editdistance("LIZARD", strtoupper($_SESSION["username"]));
 ?>
 </b></p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="home.js"></script>
 </body>
 </html>

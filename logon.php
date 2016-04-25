@@ -69,7 +69,7 @@ and a password.
 </head>
 <body>
 <div>
-	<form class = "logon" action = "home/home1.php" method = "GET">
+	<form class = "logon" action = "home/home1.php" method = "POST">
 		<p class = "logon"><b>What is your username?</b></p></br>
 		<input type = "text" class="enterinfo" name = "name" size = "30" maxlength = "30"><br/>
 		<p class = "logon"><b>What is your password?</b></p></br>

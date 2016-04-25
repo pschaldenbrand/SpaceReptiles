@@ -10,8 +10,8 @@ echo
     <input type=\"file\" name=\"fileToUpload\" id=\"fileToUpload\"></br>
 	<p class=\"formtext\">Make a name for your option:</p>
 	<input type=\"text\" class=\"textbox\" name=\"option_text\" id=\"opttext\"></br>
-	<p class=\"formtext\">Make a filename for your new Image:</p>
-	<input type=\"text\" class=\"textbox\" name=\"fileName\" id=\"fname\"></br>
+	<p class=\"formtext\">What happens in this new part of the story?</p>
+	<input type=\"text\" class=\"textbox\" name=\"description\" id=\"fname\"></br>
     <input class=\"button_upload\" type=\"submit\" value=\"Upload Image\" name=\"submit\">
 </form>
 </div>
